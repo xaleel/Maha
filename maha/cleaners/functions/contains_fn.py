@@ -3,6 +3,8 @@ Functions that operate on a string and check for values contained in it
 """
 from __future__ import annotations
 
+from maha.rexy.rexy import non_capturing_group
+
 __all__ = [
     "contains",
     "contains_expressions",
@@ -82,7 +84,7 @@ def contains(
     mentions: bool = False,
     emojis: bool = False,
     custom_strings: list[str] | str | None = None,
-    custom_expressions: ExpressionGroup | Expression | None = None,
+    custom_expressions: ExpressionGroup | Expression | list[str] | str | None = None,
     operator: str | None = None,
 ) -> dict[str, bool] | bool:
 
@@ -338,7 +340,7 @@ def contains_single_letter_word(
 
 
 def contains_expressions(
-    text: str, expressions: ExpressionGroup | Expression | str
+    text: str, expressions: ExpressionGroup | Expression | str | list[str],
 ) -> bool:
     r"""Check for matched strings in the given ``text`` using the input ``expressions``
 
@@ -382,6 +384,9 @@ def contains_expressions(
 
     if isinstance(expressions, str):
         return bool(Expression(expressions).search(text))
+
+    if isinstance(expressions, list):
+        return bool(Expression(non_capturing_group(*expressions)).search(text))
 
     raise ValueError("'expressions' must be of type Expression, ExpressionGroup or str")
 
