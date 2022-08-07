@@ -70,7 +70,6 @@ from maha.constants import (
     ZAH,
     ZAIN,
 )
-from maha.rexy.templates.expression import Expression
 from tests.utils import list_not_in_string
 
 

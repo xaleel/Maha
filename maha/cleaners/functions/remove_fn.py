@@ -4,7 +4,6 @@ Functions that operate on a string and remove certain characters.
 from __future__ import annotations
 
 from maha.rexy import non_capturing_group
-from maha.rexy.rexy import non_capturing_group
 
 __all__ = [
     "remove",
