@@ -340,7 +340,8 @@ def contains_single_letter_word(
 
 
 def contains_expressions(
-    text: str, expressions: ExpressionGroup | Expression | str | list[str],
+    text: str,
+    expressions: ExpressionGroup | Expression | str | list[str],
 ) -> bool:
     r"""Check for matched strings in the given ``text`` using the input ``expressions``
 

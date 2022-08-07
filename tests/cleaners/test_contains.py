@@ -159,7 +159,6 @@ def test_contains_repeated_substring_simple(simple_text_input: str):
     assert is_false(contains_repeated_substring(simple_text_input))
 
 
-
 @pytest.mark.parametrize(
     "input,expected,min_repeated",
     [
@@ -199,8 +198,8 @@ def test_contains_with_custom_char(input: str, chars, expected: bool):
         (ExpressionGroup(Expression("[A-F]")), True),
         (EXPRESSION_EMAILS, False),
         (ExpressionGroup(EXPRESSION_EMAILS), False),
-        (['ful. $', "^(1. بِسْمِ)"], True),
-        (["^Not in"], False)
+        (["ful. $", "^(1. بِسْمِ)"], True),
+        (["^Not in"], False),
     ],
 )
 def test_contains_with_custom_expressions(
